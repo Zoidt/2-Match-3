@@ -69,6 +69,7 @@ export default class Board {
 		sounds.play(SoundName.Whip);
 
 		// Swap canvas positions by tweening so the swap is animated.
+		// run first and second at same time, but wait for second before proceeding.
 		timer.tweenAsync(highlightedTile, ['x', 'y'], [temporaryTile.x, temporaryTile.y], 0.2);
 		await timer.tweenAsync(selectedTile, ['x', 'y'], [highlightedTile.x, highlightedTile.y], 0.2);
 

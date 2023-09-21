@@ -45,12 +45,12 @@ export default class Board {
 
 	// Highlights all the matches.
 	renderMatches() {
-		context.save();
+		context.save(); // save current style
 
 		this.matches.forEach((match) => {
 			const direction = match[0].boardX === match[1].boardX ? 'vertical' : 'horizontal';
 
-			context.strokeStyle = 'red';
+			context.strokeStyle = 'red'; // change context style temporarily
 			context.lineWidth = 4;
 
 			if (direction === 'horizontal') {
@@ -73,7 +73,7 @@ export default class Board {
 			}
 		});
 
-		context.restore();
+		context.restore(); // restore style to old 
 	}
 
 	initializeBoard() {
@@ -147,7 +147,7 @@ export default class Board {
 
 	resolveHorizontalMatches() {
 		for (let y = 0; y < Board.SIZE; y++) {
-			let matchCounter = 1;
+			let matchCounter = 1; // 1 because technically first is first of a match
 			let colourToMatch = this.tiles[y][0].colour;
 			let rowMatches = [];
 
